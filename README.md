@@ -51,7 +51,7 @@
 
 
 
-3.验证集（`./Datasets/{DATASET}/val/`）
+3.**验证集**（`./Datasets/{DATASET}/val/`）
 
 > 图片命名均以<a href="#图片">标识字母+7位长度的自增数字+图片</a>格式组成，其中数字从1开始自增。**图片格式最好是JPG、PNG、JPEG中的一种。**
 
@@ -83,8 +83,8 @@ json格式
     "type": "val",		//图片类型
     "id": "P0000001",		//图片ID，即图片名称
     "ftype": "PNG",		//图片格式，支持PNG、JPG及JPEG
-    "caption": ["A dog is running in the sky.","In the sunny sky, a dog is running."],	//字幕列表
-    "tags": ["dog","sky"]	//图像里的关键标签
+    "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."],	//字幕列表
+    "tags": ["dog", "sky"]	//图像里的关键标签
 }
 ```
 
