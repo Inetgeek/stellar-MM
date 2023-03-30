@@ -20,8 +20,7 @@
   - captions:		#字幕文件
    - train.jsonl
    - test.jsonl
-   - val.jsonl
-			
+   - val.jsonl			
  ...			#其他数据集
 ```
 
@@ -114,8 +113,7 @@ json格式
 - stellar:
  - __init__.py	#包初始化模块
  - log.py	#打印日志的模块
- - coco_cn.py	#自编码的模块
-	
+ - coco_cn.py	#自编码的模块	
 ```
 
 其中，`__init__.py`文件内容如下：
