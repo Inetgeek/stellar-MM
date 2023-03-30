@@ -68,11 +68,11 @@
 如：`train.jsonl`
 
 ```jsonl
-{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."], "tags": ["dog", "sky"]}
-{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."], "tags": ["dog", "sky"]}
-{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."], "tags": ["dog", "sky"]}
-{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."], "tags": ["dog", "sky"]}
-{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."], "tags": ["dog", "sky"]}
+{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky", "In the sunny sky, a dog is running"], "tags": ["dog", "sky"]}
+{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky", "In the sunny sky, a dog is running"], "tags": ["dog", "sky"]}
+{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky", "In the sunny sky, a dog is running"], "tags": ["dog", "sky"]}
+{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky", "In the sunny sky, a dog is running"], "tags": ["dog", "sky"]}
+{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky", "In the sunny sky, a dog is running"], "tags": ["dog", "sky"]}
 ...
 ```
 
@@ -83,7 +83,7 @@ json格式
     "type": "val",		//图片类型
     "id": "P0000001",		//图片ID，即图片名称
     "ftype": "PNG",		//图片格式，支持PNG、JPG及JPEG
-    "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."],	//字幕列表
+    "caption": ["A dog is running in the sky", "In the sunny sky, a dog is running"],	//字幕列表
     "tags": ["dog", "sky"]	//图像里的关键标签
 }
 ```
