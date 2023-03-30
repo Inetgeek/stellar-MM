@@ -5,7 +5,7 @@
 
 > 数据集文件目录，此处以COCO为例：
 
-```yaml
+```
 - Datasets: # 数据集目录
 	- COCO:	# 数据集，不同类型的数据集文件结构与命名规则一致
 		- train:	# 训练集
@@ -68,7 +68,7 @@
 
 如：`train.jsonl`
 
-```json
+```jsonl
 {"type":"train_p","id":"P0000001","ftype":"PNG","caption":["A dog is running in the sky.","In the sunny sky, a dog is running."],"tags": ["dog","sky"]}
 {"type":"train_p","id":"P0000001","ftype":"PNG","caption":["A dog is running in the sky.","In the sunny sky, a dog is running."],"tags": ["dog","sky"]}
 {"type":"train_p","id":"P0000001","ftype":"PNG","caption":["A dog is running in the sky.","In the sunny sky, a dog is running."],"tags": ["dog","sky"]}
@@ -79,7 +79,7 @@
 
 json格式
 
-```json
+```
 {
     "type": "val",	//图片类型
     "id": "P0000001",	//图片ID，即图片名称
@@ -110,7 +110,7 @@ json格式
 
 比赛所用的代码集成到python包名为`stellar`的文件结构里，文件结构如下：
 
-```yaml
+```
 - stellar:
 	- __init__.py	# 包初始化模块
 	- log.py		# 打印日志的模块
