@@ -47,7 +47,7 @@ if __name__ == '__main__':
             if l[0][5:-19] == 'train':
                 t_cnt += 1
                 num += 'P'
-                num += "{:07d}".format(v_cnt)
+                num += "{:07d}".format(t_cnt)
                 # print("n:", num)  # n: V00000001
                 json['id'] = num
                 json['type'] = 'train_p'
