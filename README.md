@@ -81,9 +81,9 @@ json格式
 
 ```json
 {
-    "type": "val",	//图片类型
-    "id": "P0000001",	//图片ID，即图片名称
-    "ftype": "PNG",	//图片格式，支持PNG、JPG及JPEG
+    "type": "val",		//图片类型
+    "id": "P0000001",		//图片ID，即图片名称
+    "ftype": "PNG",		//图片格式，支持PNG、JPG及JPEG
     "caption": ["A dog is running in the sky.","In the sunny sky, a dog is running."],	//字幕列表
     "tags": ["dog","sky"]	//图像里的关键标签
 }
@@ -113,7 +113,7 @@ json格式
 ```
 - stellar:
 	- __init__.py	# 包初始化模块
-	- log.py		# 打印日志的模块
+	- log.py	# 打印日志的模块
 	- coco_cn.py	# 自编码的模块
 	
 ```
