@@ -16,10 +16,10 @@ import thulac
 import jsonlines
 
 
-def jsonl_write(jsonl: list or tuple, path: str):
+def jsonl_write(jsonl: dict, path: str):
     """
     (追加)逐行写入jsonl文件API
-    :param jsonl: 需要写入的jsons， 一般为list[dict]
+    :param jsonl: 需要写入的jsons，为dict
     :param path: 需要写入的jsonl文件的路径
     :return: None
     """
