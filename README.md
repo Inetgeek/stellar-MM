@@ -4,13 +4,9 @@
  
  ## Pre-train Model
  
- - CLIP
-
- [github.com/OpenAI/CLIP](https://github.com/openai/clip)
+ - CLIP: [github.com/OpenAI/CLIP](https://github.com/openai/clip)
  
- - Chinese-CLIP
-
-[github.com/OFA-Sys/Chinese-CLIP](https://github.com/OFA-Sys/Chinese-CLIP)
+ - Chinese-CLIP: [github.com/OFA-Sys/Chinese-CLIP](https://github.com/OFA-Sys/Chinese-CLIP)
  
 
 ## 数据集结构
