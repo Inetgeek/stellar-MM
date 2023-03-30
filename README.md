@@ -6,11 +6,11 @@
  
  - CLIP
 
- (github.com/OpenAI/CLIP)[https://github.com/openai/clip]
+ [github.com/OpenAI/CLIP](https://github.com/openai/clip)
  
  - Chinese-CLIP
 
-(github.com/OFA-Sys/Chinese-CLIP)[https://github.com/OFA-Sys/Chinese-CLIP]
+[github.com/OFA-Sys/Chinese-CLIP](https://github.com/OFA-Sys/Chinese-CLIP)
  
 
 ## 数据集结构
