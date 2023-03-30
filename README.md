@@ -5,9 +5,11 @@
  ## Pre-train Model
  
  - CLIP
+
  (github.com/OpenAI/CLIP)[https://github.com/openai/clip]
  
  - Chinese-CLIP
+
 (github.com/OFA-Sys/Chinese-CLIP)[https://github.com/OFA-Sys/Chinese-CLIP]
  
 
