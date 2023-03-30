@@ -5,16 +5,16 @@
 
 > 数据集文件目录，此处以COCO为例：
 
-```
-- Datasets: # 数据集目录
-	- COCO:	# COCO数据集，不同类型的数据集文件结构与命名规则一致
-		- train:	# 训练集
+```yaml
+- Datasets: #数据集目录
+	- COCO:	#COCO数据集，不同类型的数据集文件结构与命名规则一致
+		- train:	#训练集
 			- P0000001.PNG
 			...
-		- test:		# 测试集 
+		- test:		#测试集 
 			- T000001.PNG
 			...
-		- val:		# 验证集
+		- val:		#验证集
 			- V0000001.PNG
 			...
 		- captions:	#字幕文件
@@ -22,7 +22,7 @@
 			- test.jsonl
 			- val.jsonl
 			
-	...	# 其他数据集
+	...	#其他数据集
 ```
 
 
@@ -110,11 +110,11 @@ json格式
 
 比赛所用的代码集成到python包名为`stellar`的文件结构里，文件结构如下：
 
-```
+```yaml
 - stellar:
-	- __init__.py	# 包初始化模块
-	- log.py	# 打印日志的模块
-	- coco_cn.py	# 自编码的模块
+	- __init__.py	#包初始化模块
+	- log.py	#打印日志的模块
+	- coco_cn.py	#自编码的模块
 	
 ```
 
