@@ -1,13 +1,13 @@
 # stellar-MM
  stellar for 4th China AI Competition(2023)
- 
- 
+
+
  ## Pre-train Model
- 
+
  - CLIP: [github.com/OpenAI/CLIP](https://github.com/openai/clip)
- 
+
  - Chinese-CLIP: [github.com/OFA-Sys/Chinese-CLIP](https://github.com/OFA-Sys/Chinese-CLIP)
- 
+
 
 ## 数据集结构
 
@@ -104,8 +104,6 @@ json格式
 - **ftype**：图片格式，支持PNG、JPG及JPEG。
 - **caption**：字幕列表
 - **tags**：图像里的关键标签
-
-
 
 ## 编码规则
 
