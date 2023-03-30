@@ -68,11 +68,11 @@
 如：`train.jsonl`
 
 ```jsonl
-{"type":"train_p","id":"P0000001","ftype":"PNG","caption":["A dog is running in the sky.","In the sunny sky, a dog is running."],"tags": ["dog","sky"]}
-{"type":"train_p","id":"P0000001","ftype":"PNG","caption":["A dog is running in the sky.","In the sunny sky, a dog is running."],"tags": ["dog","sky"]}
-{"type":"train_p","id":"P0000001","ftype":"PNG","caption":["A dog is running in the sky.","In the sunny sky, a dog is running."],"tags": ["dog","sky"]}
-{"type":"train_p","id":"P0000001","ftype":"PNG","caption":["A dog is running in the sky.","In the sunny sky, a dog is running."],"tags": ["dog","sky"]}
-{"type":"train_p","id":"P0000001","ftype":"PNG","caption":["A dog is running in the sky.","In the sunny sky, a dog is running."],"tags": ["dog","sky"]}
+{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."], "tags": ["dog", "sky"]}
+{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."], "tags": ["dog", "sky"]}
+{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."], "tags": ["dog", "sky"]}
+{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."], "tags": ["dog", "sky"]}
+{"type": "train_p", "id": "P0000001", "ftype": "PNG", "caption": ["A dog is running in the sky.", "In the sunny sky, a dog is running."], "tags": ["dog", "sky"]}
 ...
 ```
 
