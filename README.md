@@ -9,6 +9,10 @@
  - Chinese-CLIP: [github.com/OFA-Sys/Chinese-CLIP](https://github.com/OFA-Sys/Chinese-CLIP)
 
 
+## 参考
+[CVPR 2022：图像分类+图文匹配=统一多模态对比学习框架](https://cloud.tencent.com/developer/article/2117186)
+
+
 ## 数据集结构
 
 > 数据集文件目录，此处以COCO为例：
