@@ -12,6 +12,7 @@ from torch import nn
 from torch.utils.checkpoint import checkpoint
 
 import importlib.util
+
 if importlib.util.find_spec('flash_attn'):
     FlashMHA = importlib.import_module('flash_attn.flash_attention').FlashMHA
 
@@ -212,23 +213,26 @@ class ResidualAttentionBlock(nn.Module):
 
 
 class Transformer(nn.Module):
-    def __init__(self, width: int, layers: int, heads: int, attn_mask: torch.Tensor = None, use_flash_attention: bool = False):
+    def __init__(self, width: int, layers: int, heads: int, attn_mask: torch.Tensor = None,
+                 use_flash_attention: bool = False):
         super().__init__()
         self.width = width
         self.layers = layers
         self.grad_checkpointing = False
-        self.resblocks = nn.Sequential(*[ResidualAttentionBlock(width, heads, attn_mask, use_flash_attention) for _ in range(layers)])
+        self.resblocks = nn.Sequential(
+            *[ResidualAttentionBlock(width, heads, attn_mask, use_flash_attention) for _ in range(layers)])
 
     def forward(self, x: torch.Tensor):
         if self.grad_checkpointing and not torch.jit.is_scripting():
             for r in self.resblocks:
                 x = checkpoint(r, x)
-            return x        
+            return x
         return self.resblocks(x)
 
 
 class VisualTransformer(nn.Module):
-    def __init__(self, input_resolution: int, patch_size: int, width: int, layers: int, heads: int, output_dim: int, use_flash_attention: bool = False):
+    def __init__(self, input_resolution: int, patch_size: int, width: int, layers: int, heads: int, output_dim: int,
+                 use_flash_attention: bool = False):
         super().__init__()
         self.input_resolution = input_resolution
         self.grid_size = (self.input_resolution // patch_size, self.input_resolution // patch_size)
@@ -269,7 +273,9 @@ class VisualTransformer(nn.Module):
         x = self.conv1(x)  # shape = [*, width, grid, grid]
         x = x.reshape(x.shape[0], x.shape[1], -1)  # shape = [*, width, grid ** 2]
         x = x.permute(0, 2, 1)  # shape = [*, grid ** 2, width]
-        x = torch.cat([self.class_embedding.to(x.dtype) + torch.zeros(x.shape[0], 1, x.shape[-1], dtype=x.dtype, device=x.device), x], dim=1)  # shape = [*, grid ** 2 + 1, width]
+        x = torch.cat(
+            [self.class_embedding.to(x.dtype) + torch.zeros(x.shape[0], 1, x.shape[-1], dtype=x.dtype, device=x.device),
+             x], dim=1)  # shape = [*, grid ** 2 + 1, width]
         x = x + self.positional_embedding.to(x.dtype)
         if mask_ratio != 0:
             x = self.random_masking(x, mask_ratio)
@@ -297,17 +303,17 @@ class CLIP(nn.Module):
                  vision_patch_size: int,
                  # text
                  vocab_size: int,
-                 text_attention_probs_dropout_prob: float, 
-                 text_hidden_act: str, 
-                 text_hidden_dropout_prob: float, 
+                 text_attention_probs_dropout_prob: float,
+                 text_hidden_act: str,
+                 text_hidden_dropout_prob: float,
                  text_hidden_size: int,
-                 text_initializer_range: float, 
-                 text_intermediate_size: int, 
-                 text_max_position_embeddings: int, 
-                 text_num_attention_heads: int, 
-                 text_num_hidden_layers: int, 
+                 text_initializer_range: float,
+                 text_intermediate_size: int,
+                 text_max_position_embeddings: int,
+                 text_num_attention_heads: int,
+                 text_num_hidden_layers: int,
                  text_type_vocab_size: int,
-                 tokenizer = _tokenizer,
+                 tokenizer=_tokenizer,
                  # vision head width, added this param for ViT-H
                  vision_head_width: int = 64,
                  use_flash_attention: bool = False,
@@ -396,7 +402,7 @@ class CLIP(nn.Module):
     def encode_text(self, text):
         pad_index = self.tokenizer.vocab['[PAD]']
         attn_mask = text.ne(pad_index).type(self.dtype)
-        x = self.bert(text, attention_mask=attn_mask)[0].type(self.dtype) # [batch_size, seq_length, hidden_size]
+        x = self.bert(text, attention_mask=attn_mask)[0].type(self.dtype)  # [batch_size, seq_length, hidden_size]
         return x[:, 0, :] @ self.text_projection
 
     def forward(self, image, text, mask_ratio=0):
@@ -417,6 +423,20 @@ class CLIP(nn.Module):
     def get_similarity(self, image, text):
         image_features = self.encode_image(image)
         text_features = self.encode_text(text)
+
+        # normalized features
+        image_features = image_features / image_features.norm(dim=1, keepdim=True)
+        text_features = text_features / text_features.norm(dim=1, keepdim=True)
+
+        # cosine similarity as logits
+        logit_scale = self.logit_scale.exp()
+        logits_per_image = logit_scale * image_features @ text_features.t()
+        logits_per_text = logits_per_image.t()
+
+        # shape = [global_batch_size, global_batch_size]
+        return logits_per_image, logits_per_text
+
+    def my_get_similarity(self, image_features, text_features):
 
         # normalized features
         image_features = image_features / image_features.norm(dim=1, keepdim=True)
@@ -588,6 +608,7 @@ def _ntuple(n):
         if isinstance(x, collections.abc.Iterable):
             return x
         return tuple(repeat(x, n))
+
     return parse
 
 
